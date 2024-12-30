@@ -1,0 +1,1 @@
+API_PORT=8000 llamafactory-cli api bidding_srcipts/qwen_inference.yaml

@@ -1,33 +1,27 @@
 {
-  "pretrain_test": {
-    "file_name": "test_ppl.json",
+  "bidding_test_ppl": {
+    "file_name": "bidding_test_ppl.json",
     "columns": {
       "prompt": "text"
     }
   },
-  "pretrain_241216": {
+  "bidding_pretrain_241216": {
     "file_name": "bidding_pretrain_241216.json",
     "columns": {
       "prompt": "text"
     }
   }, 
-  "identity": {
-    "file_name": "identity.json"
-  },
   "bidding_pretrain": {
     "file_name": "bidding_pretrain.json",
     "columns": {
       "prompt": "text"
     }
   },
-  "bidding_sft_plus_241202":{
-    "file_name": "sft1202_qwenplus_142_ud.json"
+  "bidding_finetune_qwen_plus_1202_full":{
+    "file_name": "bidding_finetune_qwen_plus_1202_full.json"
   },
-  "sft_plus":{
-    "file_name": "sft1121_qwenplus_ud.json"
-  },
-  "sft_long":{
-    "file_name": "sft1121_qwenlong.json"
+  "identity": {
+    "file_name": "identity.json"
   },
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"

@@ -1,5 +1,7 @@
-trainset pre train: 5.98
-trainset after train: 2.74
+trainset original: 5.98
+trainset pretrain: 2.74
 
-testset pre train: 6.14
-testset after train: 2.30
+
+testset original: 6.14
+testset pretrain: 2.30
+testset finetune: 6.21
