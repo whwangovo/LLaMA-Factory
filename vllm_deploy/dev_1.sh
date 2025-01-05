@@ -1,1 +1,0 @@
-API_PORT=8001 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli api examples/inference/qwen25_sft.yaml
