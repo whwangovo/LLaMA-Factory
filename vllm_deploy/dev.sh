@@ -1,1 +1,0 @@
-API_PORT=8000 llamafactory-cli api examples/inference/qwen25_sft.yaml
