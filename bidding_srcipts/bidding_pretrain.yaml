@@ -8,7 +8,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: pretrain_241216
+dataset: pretrain_main_241216, pretrain_rules_250112, pretrain_wudao_3
 cutoff_len: 4096
 # max_samples: 1000
 overwrite_cache: true

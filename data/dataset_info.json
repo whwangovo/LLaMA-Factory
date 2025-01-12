@@ -1,30 +1,60 @@
 {
-  "bidding_test_ppl": {
-    "file_name": "bidding_test_ppl.json",
+  "pretrain_main_241216": {
+    "file_name": "pretrain_main_241216.json",
     "columns": {
       "prompt": "text"
     }
   },
-  "bidding_pretrain_241216": {
-    "file_name": "bidding_pretrain_241216.json",
+  "pretrain_rules_250112":{
+    "file_name": "pretrain_rules_250112.json",
     "columns": {
       "prompt": "text"
     }
-  }, 
-  "bidding_pretrain": {
+  },
+  "pretrain_wudao_1":{
+    "file_name": "pretrain_wudao_1.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "pretrain_wudao_2":{
+    "file_name": "pretrain_wudao_2.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "pretrain_wudao_3":{
+    "file_name": "pretrain_wudao_3.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "pretrain_wudao_4":{
+    "file_name": "pretrain_wudao_4.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "finetune_realworld_250105":{
+    "file_name": "finetune_realworld_250105.json"
+  },
+  "bidding_finetune_qwen_plus_1202_full":{
+    "file_name": "bidding_finetune_qwen_plus_1202_full.json"
+  },
+  "bidding_pretrain_archived": {
     "file_name": "bidding_pretrain.json",
     "columns": {
       "prompt": "text"
     }
   },
-  "bidding_finetune_qwen_plus_1202_full":{
-    "file_name": "bidding_finetune_qwen_plus_1202_full.json"
-  },
-  "bidding_finetune_realworld_250105":{
-    "file_name": "bidding_finetune_realworld_250105.json"
+  "evaluated_ppl": {
+    "file_name": "bidding_test_ppl.json",
+    "columns": {
+      "prompt": "text"
+    }
   },
   "identity": {
-    "file_name": "identity.json"
+    "file_name": "identity_cisl.json"
   },
   "alpaca_en_demo": {
     "file_name": "archived/alpaca_en_demo.json"

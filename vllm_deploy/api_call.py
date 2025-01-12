@@ -54,5 +54,5 @@ for i, p in enumerate(prompts):
     
     output.append(temp)
     
-    with open("finetune_output_241230.json", "w", encoding="utf8") as f:
+    with open("finetune_output_250105.json", "w", encoding="utf8") as f:
         json.dump(output, f, ensure_ascii=False)

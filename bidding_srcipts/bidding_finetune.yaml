@@ -8,7 +8,7 @@ finetuning_type: full
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: bidding_finetune_realworld_250105
+dataset: bidding_finetune_realworld_250105, identity
 template: qwen
 cutoff_len: 8192
 max_samples: 1000
