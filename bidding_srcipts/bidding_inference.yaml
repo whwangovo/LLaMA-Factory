@@ -1,4 +1,3 @@
-model_name_or_path: bidding_outputs/finetune_outputs/qwen_pretrain_finetune_250105
+model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250112
 template: qwen
 infer_backend: vllm
-vllm_enforce_eager: true
