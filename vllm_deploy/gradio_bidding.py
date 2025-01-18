@@ -2,9 +2,9 @@ import gradio as gr
 from openai import OpenAI
 
 openai_api_key = "EMPTY"
-openai_api_base = "http://0.0.0.0:8000/v1"
+openai_api_base = "http://0.0.0.0:6006/v1"
 
-model = "bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250112"
+model = "bidding_pretrain_finetune_250114"
 
 client = OpenAI(
     api_key=openai_api_key,
