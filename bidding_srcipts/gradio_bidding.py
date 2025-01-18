@@ -4,7 +4,7 @@ from openai import OpenAI
 openai_api_key = "EMPTY"
 openai_api_base = "http://0.0.0.0:6006/v1"
 
-model = "bidding_pretrain_finetune_250114"
+model = "bidding_pretrain_finetune"
 
 client = OpenAI(
     api_key=openai_api_key,
@@ -16,7 +16,7 @@ def query_model(user_input, temperature, top_p, max_tokens, repetition_penalty):
         chat_response = client.chat.completions.create(
             model=model,
             messages=[
-                {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+                # {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
                 {"role": "user", "content": user_input},
             ],
             temperature=temperature,
