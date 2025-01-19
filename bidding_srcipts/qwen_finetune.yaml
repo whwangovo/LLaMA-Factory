@@ -1,29 +1,29 @@
 ### model
-model_name_or_path: checkpoints/Qwen/Qwen2.5-14B-Instruct
+model_name_or_path: bidding_outputs/pretrain_outputs/qwen_pretrain_241216
 
 ### method
 stage: sft
 do_train: true
 finetuning_type: full
-deepspeed: examples/deepspeed/ds_z3_offload_config.json
+deepspeed: examples/deepspeed/ds_z2_config.json
 
 ### dataset
-dataset: bidding_finetune_qwen_plus_1202_full
+dataset: bidding_finetune_realworld_250105
 template: qwen
-cutoff_len: 4096
+cutoff_len: 8192
 max_samples: 1000
 overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/finetune_outputs/qwen_pretrain_finetune_241230
+output_dir: bidding_outputs/finetune_outputs/qwen_pretrain_finetune_250105
 logging_steps: 1
 plot_loss: true
 overwrite_output_dir: true
 
 ### train
 per_device_train_batch_size: 1
-gradient_accumulation_steps: 1
+gradient_accumulation_steps: 2
 learning_rate: 1.0e-5
 num_train_epochs: 2.0
 lr_scheduler_type: cosine
