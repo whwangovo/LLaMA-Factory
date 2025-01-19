@@ -1,3 +1,4 @@
-model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250113
+# model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_release_v1
+model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250118
 template: qwen
 infer_backend: vllm
