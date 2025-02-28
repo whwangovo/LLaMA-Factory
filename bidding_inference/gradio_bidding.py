@@ -1,11 +1,8 @@
 import gradio as gr
 from openai import OpenAI
-
 openai_api_key = "EMPTY"
 openai_api_base = "http://0.0.0.0:8000/v1"
-
 model = "bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250118"
-
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_api_base,
@@ -33,27 +30,33 @@ def query_model(user_input, temperature, top_p, max_tokens, repetition_penalty):
         for chunk in chat_response:
             if chunk.choices[0].delta.content is not None:
                 collected_messages.append(chunk.choices[0].delta.content)
-                yield "".join(collected_messages)
+                full_response = "".join(collected_messages)
+                char_count = f"总字数: {len(full_response)}"
+                yield full_response, char_count
                 
     except Exception as e:
-        yield f"Error: {e}"
+        error_message = f"Error: {e}"
+        yield error_message, "字数统计不可用"
 
 default_temperature = 0.7
 default_top_p = 0.8
 default_max_tokens = 8192
 default_repetition_penalty = 1.05
 
-# 修改: 改用 Interface 而不是 Blocks
+# 使用 Interface 并添加字数统计输出
 demo = gr.Interface(
     fn=query_model,
     inputs=[
         gr.Textbox(label="Input", placeholder="请输入", lines=4),
         gr.Slider(minimum=0, maximum=1, value=default_temperature, label="Temperature"),
         gr.Slider(minimum=0, maximum=1, value=default_top_p, label="Top P"),
-        gr.Slider(minimum=8192, maximum=8192, value=default_max_tokens, step=1, label="Max Tokens"),
+        # gr.Slider(minimum=8192, maximum=8192, value=default_max_tokens, step=1, label="Max Tokens"),
         gr.Slider(minimum=1.0, maximum=2.0, value=default_repetition_penalty, step=0.01, label="Repetition Penalty")
     ],
-    outputs=gr.Textbox(label="Output", placeholder="模型回答...", lines=10),
+    outputs=[
+        gr.Textbox(label="Output", placeholder="模型回答...", lines=10),
+        gr.Textbox(label="字数统计", placeholder="总字数将在回答完成后显示")
+    ],
     title="CISL Lab: Tender Agent",
     live=False,  # 不使用实时更新
 )

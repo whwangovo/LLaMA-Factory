@@ -1,0 +1,6 @@
+model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250227
+template: qwen
+infer_backend: vllm
+vllm_config: {
+  "served_model_name": "qwen_chat"
+}
