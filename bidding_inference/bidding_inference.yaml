@@ -1,6 +1,14 @@
-model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250227
+# model_name_or_path: bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250227
+# template: qwen
+# infer_backend: vllm
+# vllm_config: {
+#   "served_model_name": "qwen_chat"
+# }
+
+model_name_or_path: checkpoints/Qwen/Qwen2.5-14B-Instruct
 template: qwen
 infer_backend: vllm
 vllm_config: {
-  "served_model_name": "qwen_chat"
+  "served_model_name": "qwen_chat",
+  "enable-lora": "true"
 }
