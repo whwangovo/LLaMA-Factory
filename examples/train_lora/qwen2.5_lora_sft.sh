@@ -1,0 +1,35 @@
+#!/bin/bash
+
+deepspeed --num_gpus 5 ../../src/train_bash.py \
+    --deepspeed ../full_multi_gpu/ds_z3_config.json \
+    --stage sft \
+    --do_train \
+    --model_name_or_path /home/lt_08321/hdd/public/wangweihang/checkpoints/Qwen/Qwen2.5-0.5B-Instruct \
+    --dataset meeting_translate_all \
+    --dataset_dir ../../data \
+    --template qwen \
+    --finetuning_type lora \
+    --lora_target q_proj,v_proj \
+    --lora_rank 16 \
+    --lora_alpha 32 \
+    --output_dir ../../saves/saves5/Qwen1.5-14-Chat/lora/meetting_translater\
+    --overwrite_cache \
+    --overwrite_output_dir \
+    --cutoff_len 4096 \
+    --preprocessing_num_workers 16 \
+    --per_device_train_batch_size 40 \
+    --per_device_eval_batch_size 40 \
+    --gradient_accumulation_steps 2 \
+    --lr_scheduler_type cosine \
+    --logging_steps 100 \
+    --warmup_steps 50 \
+    --save_steps 300 \
+    --eval_steps 300 \
+    --evaluation_strategy steps \
+    --load_best_model_at_end \
+    --learning_rate 3e-4 \
+    --num_train_epochs 8.0 \
+    --val_size 0.1 \
+    --ddp_timeout 1800000 \
+    --plot_loss \
+    --fp16 \

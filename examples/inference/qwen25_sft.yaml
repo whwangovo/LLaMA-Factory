@@ -1,0 +1,9 @@
+# model_name_or_path: /home/lt_08321/hdd/wangweihang/outputs/saves/241216/qwen2.5-14b/full/pt
+# model_name_or_path: /home/lt_08321/hdd/wangweihang/outputs/saves/qwen2.5-14b/full/sft/
+# model_name_or_path: /home/lt_08321/hdd/wangweihang/checkpoints/Qwen/Qwen2.5-14B-Instruct
+# model_name_or_path: /home/lt_08321/hdd/wangweihang/outputs/saves/qwen2.5-14b/full/pt
+# model_name_or_path: /home/lt_08321/hdd/wangweihang/outputs/saves/qwen2.5-14b/full/pretrain_sft_241202
+model_name_or_path: /home/lt_08321/ssd/wangweihang/LLaMA-Factory/outputs/saves/241216/qwen2.5-14b/full/pt
+template: qwen
+infer_backend: vllm
+vllm_enforce_eager: true
