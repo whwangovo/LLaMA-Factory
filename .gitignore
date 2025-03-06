@@ -187,8 +187,12 @@ predictions_score.json
 data/
 
 *data*
+<<<<<<< HEAD
 *bidding_outputs*
 =======
 
 *data*
 >>>>>>> 4e401cfd (merge)
+=======
+*bidding_outputs*
+>>>>>>> a51a20fe (merge)
