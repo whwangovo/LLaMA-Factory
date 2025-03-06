@@ -59,6 +59,16 @@
   "identity": {
     "file_name": "identity_cisl.json"
   },
+  "dpo@zhulong@20250306": {
+    "file_name": "dpo@zhulong@2@20250306.json",
+    "ranking": true,
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "chosen": "chosen",
+      "rejected": "rejected"
+    }
+  },
   "alpaca_en_demo": {
     "file_name": "archived/alpaca_en_demo.json"
   },

@@ -2,6 +2,7 @@ import asyncio
 import random
 import aiohttp
 import time
+import json
 from openai import AsyncOpenAI
 
 # OpenAI API 配置
@@ -13,51 +14,63 @@ client = AsyncOpenAI(
     base_url=openai_api_base,
 )
 
-def get_random_word_count():
-    """生成符合正态分布的字数要求（500-5000）。"""
-    while True:
-        word_count = int(random.gauss(2750, 750))  # 均值 2750，标准差 750
-        if 500 <= word_count <= 5000:
-            return word_count
-
 total_chars = 0  # 统计生成的汉字总数
 
-async def fetch_chat_response(session, index):
+async def fetch_chat_response(session, item, index):
     global total_chars
-    word_count = get_random_word_count()
-    user_prompt = f"有一个工程名称为“01依江新能源汽车零部件产业基地B区建设项目”的项目，2024年的，项目分类：房建/库房，项目性质：新建,项目所在地：安徽省安庆市，建设规模：“本项目为安庆迎江经济开发区提质增效项目-依江新能源汽车零部件产业基地B区建设项目，项目主要内容包括建设厂房、宿舍及附属配套设施等，总建筑面积约4.20万平方米:详见施工图设计文件、工程量清单及最高投标限价等。”，招标范围：“招标文件、施工图设计文件中涉及《安庆迎江经济开发区提质增效项目-依江新能源汽车零部件产业基地B区》的建筑、装饰、安装、室外道排、景观、室外安装工程等内容,”，方案分类：施工方案/季节性/季节性。目前需要写季节性施工方案，字数7000字左右，请你进行写作"
+    question = item["question"]
     
     try:
         response = await client.chat.completions.create(
             model="qwen_chat",
             messages=[
-                # {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
-                {"role": "user", "content": user_prompt},
+                {"role": "user", "content": question},
             ],
             temperature=0.7,
-            top_p=0.8,
+            top_p=0.9,
             max_tokens=8192,
             extra_body={"repetition_penalty": 1.05},
         )
         response_text = response.choices[0].message.content
-        total_chars += len(response_text)  # 统计汉字数量
-        print(f"Response {index}: {response_text}...")  # 仅打印前100字符
+        # total_chars += len(response_text)  # 统计汉字数量
+        # print(f"Response {index}: {response_text[:100]}...")  # 仅打印前100字符
+        
+        # 添加预测结果到原始数据项
+        item["predict"] = response_text
+        return item
+        
     except Exception as e:
         print(f"Error in request {index}: {e}")
+        item["predict"] = f"Error: {str(e)}"
+        return item
 
-async def main(step):
+async def main(input_file, output_file):
+    # 读取JSON文件
+    try:
+        with open(input_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        print(f"Successfully loaded {len(data)} items from {input_file}")
+    except Exception as e:
+        print(f"Error loading input file: {e}")
+        return
+    
     start_time = time.time()
     async with aiohttp.ClientSession() as session:
-        tasks = [fetch_chat_response(session, i) for i in range(step)]
-        await asyncio.gather(*tasks)
-        # for i in range(step):
-        #     await fetch_chat_response(session, i)
-        #     await asyncio.sleep(0.5)  # 每次请求间隔 0.5 秒
+        tasks = [fetch_chat_response(session, item, i) for i, item in enumerate(data)]
+        results = await asyncio.gather(*tasks)
+    
+    # 保存结果到JSON文件
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(results, f, ensure_ascii=False, indent=2)
+        print(f"Results saved to {output_file}")
+    except Exception as e:
+        print(f"Error saving output file: {e}")
+    
     end_time = time.time()
     total_time = end_time - start_time
-    print(f"Completed {step} requests in {total_time:.2f} seconds")
-    print(f"Total generated characters: {total_chars}")
-    print(f"Characters per second: {total_chars / total_time:.2f}")
 
 if __name__ == "__main__":
-    asyncio.run(main(100))
+    input_file = "data/dpo@zhulong@2@20250306.json"  # 输入文件名
+    output_file = "data/dpo@zhulong@2@20250306_predict.json"  # 输出文件名
+    asyncio.run(main(input_file, output_file))
