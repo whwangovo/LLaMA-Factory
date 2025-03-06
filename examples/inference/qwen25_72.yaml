@@ -1,0 +1,4 @@
+model_name_or_path: /home/lt_08321/hdd/wangweihang/checkpoints/Qwen/Qwen2.5-72B-Instruct
+template: qwen
+infer_backend: vllm
+vllm_enforce_eager: true
