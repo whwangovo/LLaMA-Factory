@@ -1,24 +1,10 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4e401cfd (merge)
   "pretrain_main_241216": {
     "file_name": "pretrain_main_241216.json",
-=======
-  "pretrain_test": {
-    "file_name": "test_ppl.json",
->>>>>>> ad1c2617 (bidding)
     "columns": {
       "prompt": "text"
     }
-<<<<<<< HEAD
   }, 
-=======
-  },
-<<<<<<< HEAD
->>>>>>> 4e401cfd (merge)
   "pretrain_rules_250112":{
     "file_name": "pretrain_rules_250112.json",
     "columns": {
@@ -49,20 +35,12 @@
       "prompt": "text"
     }
   },
-=======
->>>>>>> 6b4f8743 (merge)
   "pretrain_test": {
     "file_name": "test_ppl.json",
-=======
-  "bidding_test_ppl": {
-    "file_name": "bidding_test_ppl.json",
->>>>>>> 7b37eebd (bidding pretrain+finetune)
     "columns": {
       "prompt": "text"
     }
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   "finetune_realworld_250105":{
     "file_name": "finetune_realworld_250105.json"
   },
@@ -78,18 +56,6 @@
   "finetune_summary_250112":{
     "file_name": "finetune_summary_250112.json"
   },
-=======
-  "pretrain_241216": {
-=======
-  "bidding_pretrain_241216": {
->>>>>>> 7b37eebd (bidding pretrain+finetune)
-    "file_name": "bidding_pretrain_241216.json",
-    "columns": {
-      "prompt": "text"
-    }
-  }, 
-<<<<<<< HEAD
->>>>>>> 6b4f8743 (merge)
   "identity": {
     "file_name": "identity_cisl.json"
   },
@@ -102,51 +68,6 @@
       "chosen": "chosen",
       "rejected": "rejected"
     }
-  },
-=======
->>>>>>> 7b37eebd (bidding pretrain+finetune)
-  "bidding_pretrain": {
-    "file_name": "bidding_pretrain.json",
-    "columns": {
-      "prompt": "text"
-    }
-  },
-  "bidding_finetune_qwen_plus_1202_full":{
-    "file_name": "bidding_finetune_qwen_plus_1202_full.json"
-  },
-=======
-  "pretrain_241216": {
-    "file_name": "bidding_pretrain_241216.json",
-    "columns": {
-      "prompt": "text"
-    }
-  }, 
->>>>>>> ad1c2617 (bidding)
-  "identity": {
-    "file_name": "identity.json"
-  },
-  "bidding_pretrain": {
-    "file_name": "bidding_pretrain.json",
-    "columns": {
-      "prompt": "text"
-    }
-  },
-  "bidding_sft_plus_241202":{
-    "file_name": "sft1202_qwenplus_142_ud.json"
-  },
-<<<<<<< HEAD
-  "sft_plus":{
-    "file_name": "sft1121_qwenplus_ud.json"
-  },
-  "sft_long":{
-    "file_name": "sft1121_qwenlong.json"
-=======
-  "bidding_finetune_realworld_250105":{
-    "file_name": "bidding_finetune_realworld_250105.json"
-  },
-  "identity": {
-    "file_name": "identity.json"
->>>>>>> 0b9c7780 (bidding real world)
   },
   "alpaca_en_demo": {
     "file_name": "archived/alpaca_en_demo.json"
@@ -176,20 +97,6 @@
     "columns": {
       "messages": "messages",
       "images": "images"
-    },
-    "tags": {
-      "role_tag": "role",
-      "content_tag": "content",
-      "user_tag": "user",
-      "assistant_tag": "assistant"
-    }
-  },
-  "mllm_audio_demo": {
-    "file_name": "mllm_audio_demo.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "messages",
-      "audios": "audios"
     },
     "tags": {
       "role_tag": "role",
@@ -479,38 +386,6 @@
       "prompt": "prompt",
       "response": "response"
     }
-  },
-  "open_thoughts": {
-    "hf_hub_url": "llamafactory/OpenThoughts-114k",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "messages"
-    },
-    "tags": {
-      "role_tag": "role",
-      "content_tag": "content",
-      "user_tag": "user",
-      "assistant_tag": "assistant",
-      "system_tag": "system"
-    }
-  },
-  "open_r1_math": {
-    "hf_hub_url": "llamafactory/OpenR1-Math-94k",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "messages"
-    },
-    "tags": {
-      "role_tag": "role",
-      "content_tag": "content",
-      "user_tag": "user",
-      "assistant_tag": "assistant",
-      "system_tag": "system"
-    }
-  },
-  "chinese_r1_distill": {
-    "hf_hub_url": "Congliu/Chinese-DeepSeek-R1-Distill-data-110k-SFT",
-    "ms_hub_url": "liucong/Chinese-DeepSeek-R1-Distill-data-110k-SFT"
   },
   "llava_1k_en": {
     "hf_hub_url": "BUAADreamer/llava-en-zh-2k",
