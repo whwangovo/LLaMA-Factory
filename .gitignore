@@ -160,12 +160,15 @@ cython_debug/
 .idea/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # vscode
 .vscode/
 
 # uv
 uv.lock
 
+=======
+>>>>>>> 4e401cfd (merge)
 =======
 >>>>>>> 4e401cfd (merge)
 # custom .gitignore
@@ -177,6 +180,7 @@ config/
 saves/
 output/
 wandb/
+<<<<<<< HEAD
 swanlog/
 generated_predictions.jsonl
 predictions_score.json
@@ -184,3 +188,7 @@ data/
 
 *data*
 *bidding_outputs*
+=======
+
+*data*
+>>>>>>> 4e401cfd (merge)

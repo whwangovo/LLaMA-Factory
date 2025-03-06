@@ -4,7 +4,11 @@ client = OpenAI(api_key="0",base_url="http://0.0.0.0:8000/v1")
 
 def get_response(prompt):
     request = {
+<<<<<<< HEAD
         "model": "bidding_outputs/finetune_outputs/qwen_pretrain_finetune_241230",
+=======
+        "model": "/home/lt_08321/ssd/wangweihang/LLaMA-Factory/outputs/saves/241216/qwen2.5-14b/full/pt",
+>>>>>>> ad1c2617 (bidding)
         "messages": [
             {
                 "role": "user",
@@ -54,5 +58,13 @@ for i, p in enumerate(prompts):
     
     output.append(temp)
     
+<<<<<<< HEAD
     with open("finetune_output_241230.json", "w", encoding="utf8") as f:
+=======
+<<<<<<< HEAD
+    with open("finetune_output_250105.json", "w", encoding="utf8") as f:
+=======
+    with open("cpt_output.json", "w", encoding="utf8") as f:
+>>>>>>> ad1c2617 (bidding)
+>>>>>>> 4e401cfd (merge)
         json.dump(output, f, ensure_ascii=False)
