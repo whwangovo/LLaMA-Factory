@@ -180,17 +180,9 @@ config/
 saves/
 output/
 wandb/
-<<<<<<< HEAD
 swanlog/
 generated_predictions.jsonl
 
-*data*
-<<<<<<< HEAD
-*bidding_outputs*
-=======
 
 *data*
->>>>>>> 4e401cfd (merge)
-=======
 *bidding_outputs*
->>>>>>> a51a20fe (merge)
