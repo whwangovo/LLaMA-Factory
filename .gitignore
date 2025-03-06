@@ -179,4 +179,6 @@ output/
 wandb/
 swanlog/
 generated_predictions.jsonl
-data/
+
+*data*
+*bidding_outputs*

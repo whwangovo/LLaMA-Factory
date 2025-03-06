@@ -88,11 +88,19 @@
   "bidding_sft_plus_241202":{
     "file_name": "sft1202_qwenplus_142_ud.json"
   },
+<<<<<<< HEAD
   "sft_plus":{
     "file_name": "sft1121_qwenplus_ud.json"
   },
   "sft_long":{
     "file_name": "sft1121_qwenlong.json"
+=======
+  "bidding_finetune_realworld_250105":{
+    "file_name": "bidding_finetune_realworld_250105.json"
+  },
+  "identity": {
+    "file_name": "identity.json"
+>>>>>>> 0b9c7780 (bidding real world)
   },
   "alpaca_en_demo": {
     "file_name": "archived/alpaca_en_demo.json"
