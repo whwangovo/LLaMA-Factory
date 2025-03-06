@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "pretrain_main_241216": {
     "file_name": "pretrain_main_241216.json",
     "columns": {
@@ -35,12 +36,15 @@
       "prompt": "text"
     }
   },
+=======
+>>>>>>> 6b4f8743 (merge)
   "pretrain_test": {
     "file_name": "test_ppl.json",
     "columns": {
       "prompt": "text"
     }
   },
+<<<<<<< HEAD
   "finetune_realworld_250105":{
     "file_name": "finetune_realworld_250105.json"
   },
@@ -56,6 +60,14 @@
   "finetune_summary_250112":{
     "file_name": "finetune_summary_250112.json"
   },
+=======
+  "pretrain_241216": {
+    "file_name": "bidding_pretrain_241216.json",
+    "columns": {
+      "prompt": "text"
+    }
+  }, 
+>>>>>>> 6b4f8743 (merge)
   "identity": {
     "file_name": "identity_cisl.json"
   },
@@ -68,6 +80,21 @@
       "chosen": "chosen",
       "rejected": "rejected"
     }
+  },
+  "bidding_pretrain": {
+    "file_name": "bidding_pretrain.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "bidding_sft_plus_241202":{
+    "file_name": "sft1202_qwenplus_142_ud.json"
+  },
+  "sft_plus":{
+    "file_name": "sft1121_qwenplus_ud.json"
+  },
+  "sft_long":{
+    "file_name": "sft1121_qwenlong.json"
   },
   "alpaca_en_demo": {
     "file_name": "archived/alpaca_en_demo.json"
