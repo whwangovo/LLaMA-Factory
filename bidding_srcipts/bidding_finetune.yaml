@@ -1,6 +1,8 @@
 ### model
 model_name_or_path: bidding_outputs/pretrain_outputs/bidding_pretrain_250112
 # model_name_or_path: checkpoints/Qwen/DeepSeek-R1-Distill-Qwen-14B
+model_max_length: 8192
+flash_attn: fa2
 
 ### method
 stage: sft

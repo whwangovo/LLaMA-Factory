@@ -4,7 +4,7 @@ import time
 
 openai_api_key = "EMPTY"
 openai_api_base = "http://0.0.0.0:8000/v1"
-model = "bidding_outputs/finetune_outputs/bidding_pretrain_finetune_250118"
+model = "qwen_chat"
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_api_base,
