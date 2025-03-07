@@ -71,6 +71,6 @@ async def main(input_file, output_file):
     total_time = end_time - start_time
 
 if __name__ == "__main__":
-    input_file = "data/dpo@zhulong@2@20250306.json"  # 输入文件名
-    output_file = "data/dpo@zhulong@2@20250306_predict.json"  # 输出文件名
+    input_file = "data/eval_data/keywords_data.json"  # 输入文件名
+    output_file = "data/eval_data/keywords_data@predict@14b.json"  # 输出文件名
     asyncio.run(main(input_file, output_file))

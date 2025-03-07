@@ -15,16 +15,23 @@ from frontend.config import (
     get_stats_html, SERVER_CONFIG
 )
 
+# 可用模型列表
+AVAILABLE_MODELS = [
+    "qwen_chat",
+    "rw",
+    "cs"
+]
+
 # OpenAI 客户端配置
 openai_api_key = "EMPTY"
 openai_api_base = "http://0.0.0.0:8000/v1"
-model = "qwen_chat"
+default_model = "qwen_chat"  # 默认模型
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_api_base,
 )
 
-def query_model(user_input, temperature, top_p, max_tokens, repetition_penalty):
+def query_model(user_input, model_choice, temperature, top_p, max_tokens, repetition_penalty):
     """
     使用 OpenAI API 查询模型并生成响应
     """
@@ -32,16 +39,14 @@ def query_model(user_input, temperature, top_p, max_tokens, repetition_penalty):
     token_count = 0
     try:
         chat_response = client.chat.completions.create(
-            model=model,
+            model=model_choice,  # 使用用户选择的模型
             messages=[
                 {"role": "user", "content": user_input},
             ],
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,
-            extra_body={
-                "repetition_penalty": repetition_penalty,
-            },
+            # frequency_penalty=repetition_penalty,  # 更新为使用重复惩罚参数
             stream=True
         )
         
@@ -81,6 +86,14 @@ def create_ui():
                             label=UI_TEXT["input_label"],
                             placeholder=UI_TEXT["input_placeholder"], 
                             lines=8
+                        )
+                        
+                        # 添加模型选择下拉菜单
+                        model_choice = gr.Dropdown(
+                            choices=AVAILABLE_MODELS,
+                            value=default_model,
+                            label="选择模型",
+                            info="选择要使用的大语言模型"
                         )
                         
                         gr.HTML(UI_TEXT["parameter_title"])
@@ -125,7 +138,7 @@ def create_ui():
             
             submit_btn.click(
                 fn=query_model,
-                inputs=[user_input, temperature, top_p, max_tokens, repetition_penalty],
+                inputs=[user_input, model_choice, temperature, top_p, max_tokens, repetition_penalty],
                 outputs=[output, stats_output]
             )
     
