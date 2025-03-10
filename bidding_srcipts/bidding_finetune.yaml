@@ -1,13 +1,12 @@
 ### model
-model_name_or_path: bidding_outputs/pretrain_outputs/bidding_pretrain_250112
-# model_name_or_path: checkpoints/Qwen/DeepSeek-R1-Distill-Qwen-14B
-model_max_length: 8192
+# model_name_or_path: bidding_outputs/pretrain_outputs/bidding_pretrain_250112
+model_name_or_path: checkpoints/Qwen/Qwen2.5-32B-Instruct
 flash_attn: fa2
 
 ### method
 stage: sft
 do_train: true
-finetuning_type: full
+finetuning_type: lora
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
@@ -20,13 +19,13 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/finetune_outputs/finetune@pt@FGIRCS@20250306
+output_dir: bidding_outputs/finetune_outputs/finetune@32B@pure@FGIRCS@20250310
 logging_steps: 1
 plot_loss: true
 overwrite_output_dir: true
 
 ### train
-per_device_train_batch_size: 2
+per_device_train_batch_size: 1
 gradient_accumulation_steps: 1
 learning_rate: 1.0e-5
 num_train_epochs: 2
