@@ -23,14 +23,8 @@
       "prompt": "text"
     }
   },
-  "pretrain_wudao_3":{
-    "file_name": "pretrain_wudao_3.json",
-    "columns": {
-      "prompt": "text"
-    }
-  },
-  "pretrain_wudao_4":{
-    "file_name": "pretrain_wudao_4.json",
+  "pretrain_main_250312":{
+    "file_name": "pretrain_main_250312.json",
     "columns": {
       "prompt": "text"
     }
@@ -47,6 +41,9 @@
   "finetune_realworld_250227":{
     "file_name": "finetune_realworld_250227.json"
   },
+  "finetune_realworld_250312":{
+    "file_name": "finetune_zhulong_2_20250306.json"
+  },
   "finetune_continue_250112":{
     "file_name": "finetune_continue_250112.json"
   },
@@ -59,8 +56,8 @@
   "identity": {
     "file_name": "identity_cisl.json"
   },
-  "dpo@zhulong@20250306": {
-    "file_name": "dpo@zhulong@2@20250306.json",
+  "dpo_zhulong_20250306": {
+    "file_name": "dpo_zhulong_2_20250306.json",
     "ranking": true,
     "columns": {
       "prompt": "instruction",
