@@ -17,7 +17,6 @@ import os
 from llamafactory.extras.misc import fix_proxy, is_env_enabled
 from llamafactory.webui.interface import create_ui
 
-
 def main():
     gradio_ipv6 = is_env_enabled("GRADIO_IPV6")
     gradio_share = is_env_enabled("GRADIO_SHARE")
