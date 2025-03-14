@@ -19,7 +19,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/finetune_outputs/finetune@14B@pt@full@FGIRCS@20250312
+output_dir: bidding_outputs/finetune_outputs/finetune@14B@pt@full@GIRCS@250312
 logging_steps: 1
 plot_loss: true
 overwrite_output_dir: true

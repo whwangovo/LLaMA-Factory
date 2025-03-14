@@ -4,11 +4,11 @@ model_name_or_path: /home/lt_08321/hdd/wangweihang/checkpoints/Qwen/Qwen2.5-0.5B
 ### method
 stage: sft
 do_train: true
-finetuning_type: lora
+finetuning_type: full
 lora_target: all
 
 ### dataset
-dataset: identity,alpaca_en_demo
+dataset: finetune_general_250112, identity, finetune_realworld_250105, finetune_realworld_250227, finetune_continue_250112, finetune_summary_250112, finetune_realworld_250312
 template: qwen
 cutoff_len: 2048
 max_samples: 1000
@@ -16,23 +16,18 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: saves/qwen2.5-0.5b/lora/sft
+output_dir: saves/qwen2.5-0.5b/full/sft
 logging_steps: 10
 plot_loss: true
 overwrite_output_dir: true
+save_steps: 8000000000
 
 ### train
-per_device_train_batch_size: 1
+per_device_train_batch_size: 16
 gradient_accumulation_steps: 8
 learning_rate: 1.0e-4
-num_train_epochs: 30000000000
+num_train_epochs: 8000000000
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
-ddp_timeout: 180000000
 
-### eval
-val_size: 0.1
-per_device_eval_batch_size: 1
-eval_strategy: steps
-eval_steps: 500
