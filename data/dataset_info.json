@@ -1,30 +1,24 @@
 {
-  "pretrain_main_241216": {
-    "file_name": "pretrain_main_241216.json",
-    "columns": {
-      "prompt": "text"
-    }
-  }, 
-  "pretrain_rules_250112":{
-    "file_name": "pretrain_rules_250112.json",
+  "pretrain_main_250105": {
+    "file_name": "pretrain_main_250105.json",
     "columns": {
       "prompt": "text"
     }
   },
-  "pretrain_wudao_1":{
-    "file_name": "pretrain_wudao_1.json",
-    "columns": {
-      "prompt": "text"
-    }
-  },
-  "pretrain_wudao_2":{
-    "file_name": "pretrain_wudao_2.json",
+  "pretrain_rules_250105":{
+    "file_name": "pretrain_rules_250105.json",
     "columns": {
       "prompt": "text"
     }
   },
   "pretrain_main_250312":{
     "file_name": "pretrain_main_250312.json",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "pretrain_wudao_1":{
+    "file_name": "pretrain_wudao_1.json",
     "columns": {
       "prompt": "text"
     }
@@ -42,7 +36,7 @@
     "file_name": "finetune_realworld_250227.json"
   },
   "finetune_realworld_250312":{
-    "file_name": "finetune_zhulong_2_20250306.json"
+    "file_name": "finetune_realworld_250306.json"
   },
   "finetune_continue_250112":{
     "file_name": "finetune_continue_250112.json"
@@ -56,8 +50,8 @@
   "identity": {
     "file_name": "identity_cisl.json"
   },
-  "dpo_zhulong_20250306": {
-    "file_name": "dpo_zhulong_2_20250306.json",
+  "dpo_realworld_20250306": {
+    "file_name": "dpo_realworld_250306.json",
     "ranking": true,
     "columns": {
       "prompt": "instruction",

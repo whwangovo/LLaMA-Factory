@@ -17,6 +17,6 @@ def split_txt_to_json(input_file, output_file, chunk_size=4096):
 
 # 示例调用
 if __name__ == '__main__':
-    input_file = "data/archived/output.txt"
-    output_file = "data/archived/bidding_pretrain."
+    input_file = "data/source/pretrain_rules.txt"
+    output_file = "data/source/pretrain_rules.json"
     split_txt_to_json(input_file, output_file)
