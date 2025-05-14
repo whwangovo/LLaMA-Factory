@@ -8,7 +8,7 @@ finetuning_type: full
 lora_target: all
 
 ### dataset
-dataset: finetune_general_250112, identity, finetune_realworld_250105, finetune_realworld_250227, finetune_continue_250112, finetune_summary_250112, finetune_realworld_250312
+dataset: finetune_realworld_part1, finetune_realworld_part2, finetune_realworld_part3
 template: qwen
 cutoff_len: 2048
 max_samples: 1000

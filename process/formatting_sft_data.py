@@ -9,9 +9,10 @@ def transform_json(input_file, output_file):
     transformed_data = []
     for entry in data:
         transformed_entry = {
-            "instruction": entry.get("question", ""),
-            "input": "",
-            "output": entry.get("answer", "")
+            # "instruction": entry.get("instruction", ""),
+            # "input": "",
+            "question": entry.get("output", "")
+            # "input": entry.get("output", "")
             # "chosen": entry.get("answer", ""),
             # "rejected": entry.get("predict", ""),
         }
@@ -25,6 +26,6 @@ def transform_json(input_file, output_file):
 
 # Example usage
 if __name__ == "__main__":
-    input_json_file = "data/archived/zhulong@2@20250225_original.json"  # Replace with your input JSON file
-    output_json_file = "data/finetune@zhulong@2@20250306.json"  # Replace with your desired output JSON file
+    input_json_file = "data/test/ai_test_rebuild.json"  # Replace with your input JSON file
+    output_json_file = "data/test/ai_test_rebuild.json"  # Replace with your desired output JSON file
     transform_json(input_json_file, output_json_file)

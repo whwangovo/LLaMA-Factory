@@ -24,7 +24,7 @@ AVAILABLE_MODELS = [
 
 # OpenAI 客户端配置
 openai_api_key = "EMPTY"
-openai_api_base = "http://0.0.0.0:8000/v1"
+openai_api_base = "http://0.0.0.0:8001/v1"
 default_model = "qwen_chat"  # 默认模型
 client = OpenAI(
     api_key=openai_api_key,

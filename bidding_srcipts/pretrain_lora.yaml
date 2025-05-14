@@ -1,25 +1,24 @@
 ### model
-model_name_or_path: bidding_outputs/pretrain_outputs/pretrain@72B@lora_merge@250407
+# model_name_or_path: checkpoints/Qwen/Qwen2.5-14B-Instruct
+model_name_or_path: checkpoints/Qwen/Qwen2.5-72B-Instruct
 flash_attn: fa2
 
 ### method
-stage: sft
+stage: pt
 do_train: true
 finetuning_type: lora
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-# dataset: finetune_continue_250112, finetune_summary_250112
-dataset: finetune_realworld_250322, finetune_realworld_250323, finetune_realworld_250324
-template: qwen
+dataset: pretrain_main_250105, pretrain_rules_250105, pretrain_main_250312
 cutoff_len: 8192
-max_samples: 10000
+# max_samples: 1000
 overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/pretrain_outputs/sft@72B@lora@QA@250407
-logging_steps: 1
+output_dir: bidding_outputs/pretrain_outputs/pretrain@72B@lora@250402
+logging_steps: 10
 plot_loss: true
 overwrite_output_dir: true
 
@@ -27,7 +26,8 @@ overwrite_output_dir: true
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 1
 learning_rate: 1.0e-5
-num_train_epochs: 2
+num_train_epochs: 1.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
+ddp_timeout: 180000000

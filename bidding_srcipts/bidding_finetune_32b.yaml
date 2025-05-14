@@ -1,6 +1,5 @@
 ### model
-# model_name_or_path: bidding_outputs/pretrain_outputs/bidding_pretrain_250112
-model_name_or_path: bidding_outputs/pretrain_outputs/pretrain@250314
+model_name_or_path: checkpoints/Qwen/Qwen3-32B
 flash_attn: fa2
 
 ### method
@@ -11,7 +10,7 @@ deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
 # dataset: finetune_generate_rw_250105, finetune_continue_250112, finetune_summary_250112, finetune_general_250112, identity
-dataset: finetune_realworld_part1, finetune_realworld_part2, finetune_realworld_part3
+dataset: finetune_realworld_part1, finetune_realworld_part2, finetune_realworld_part3, gkx_data
 template: qwen
 cutoff_len: 8192
 max_samples: 10000
@@ -19,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/finetune_outputs/sft@14B@pt@full@Wrting@250415
+output_dir: bidding_outputs/finetune_outputs/sft@32B@full@full@250514
 logging_steps: 1
 plot_loss: true
 overwrite_output_dir: true

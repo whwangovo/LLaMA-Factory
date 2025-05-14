@@ -59,7 +59,7 @@ def json_to_csv(json_folder_path, output_csv_path):
     return output_csv_path
 
 if __name__ == "__main__":    
-    json_folder = "data/test/test_output/0313"
-    output_path =  "data/test/test_output/0313/test_output_250313.xlsx"
+    json_folder = "data/test/test_output/0425"
+    output_path =  "data/test/test_output/0425/test_output.xlsx"
     
     json_to_csv(json_folder, output_path)

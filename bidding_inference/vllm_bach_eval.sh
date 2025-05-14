@@ -2,7 +2,8 @@
 
 # 定义模型路径列表
 declare -a MODEL_PATHS=(
-    "bidding_outputs/finetune_outputs/sft@14B@pt@full@GIRCS@250118"
+    "bidding_outputs/finetune_outputs/sft@14B@pt@full@Wrting@250415"
+    # "bidding_outputs/finetune_outputs/sft@72B@lora_merge@QA@250407"
     # "bidding_outputs/finetune_outputs/sft@14B@pt@full@GIRCS@250306"
     # "bidding_outputs/finetune_outputs/sft@14B@pt@full@GIRCS@250312"
     # "bidding_outputs/posttrain_outputs/dpo@14B@pt@full@GIRCS@250312"

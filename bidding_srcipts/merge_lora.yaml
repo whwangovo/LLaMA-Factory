@@ -1,0 +1,13 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: bidding_outputs/pretrain_outputs/pretrain@72B@lora_merge@250407
+adapter_name_or_path: bidding_outputs/finetune_outputs/fientune@72B@lora@QA@250407
+template: qwen
+trust_remote_code: true
+
+### export
+export_dir: bidding_outputs/finetune_outputs/fientune@72B@lora_merge@QA@250407
+export_size: 5
+export_device: cpu
+export_legacy_format: false
