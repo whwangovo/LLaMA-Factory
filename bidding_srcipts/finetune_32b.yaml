@@ -1,12 +1,12 @@
 ### model
-model_name_or_path: checkpoints/Qwen/Qwen3-32B
+model_name_or_path: bidding_outputs/pretrain_outputs/pretrain@qwen3@32b@full@250514
 flash_attn: fa2
 
 ### method
 stage: sft
 do_train: true
 finetuning_type: full
-deepspeed: examples/deepspeed/ds_z3_config.json
+deepspeed: examples/deepspeed/ds_z3_offload_config.json
 
 ### dataset
 # dataset: finetune_generate_rw_250105, finetune_continue_250112, finetune_summary_250112, finetune_general_250112, identity
@@ -18,7 +18,7 @@ overwrite_cache: true
 preprocessing_num_workers: 16
 
 ### output
-output_dir: bidding_outputs/finetune_outputs/sft@32B@full@full@250514
+output_dir: bidding_outputs/finetune_outputs/sft@qwen3@32B@full@full@250514
 logging_steps: 1
 plot_loss: true
 overwrite_output_dir: true
