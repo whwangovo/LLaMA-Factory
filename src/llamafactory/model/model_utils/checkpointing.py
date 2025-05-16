@@ -157,15 +157,6 @@ def _fp32_forward_post_hook(
     return output.to(torch.float32)
 
 
-<<<<<<< HEAD
-def prepare_model_for_training(model: "PreTrainedModel", model_args: "ModelArguments") -> None:
-    r"""Prepare the model before training.
-
-    Include:
-    (1) cast the layernorm in fp32
-    (2) make output embedding layer require grads
-    (3) add the upcasting of the lm_head in fp32.
-=======
 def prepare_model_for_training(
     model: "PreTrainedModel", model_args: "ModelArguments"
 ) -> None:
@@ -174,7 +165,6 @@ def prepare_model_for_training(
         (1) cast the layernorm in fp32
         (2) make output embedding layer require grads
         (3) add the upcasting of the lm_head in fp32
->>>>>>> fd8c3c70 (qwen3)
     """
     if model_args.upcast_layernorm:
         logger.info_rank0("Upcasting layernorm weights in float32.")
