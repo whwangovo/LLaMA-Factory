@@ -1,10 +1,11 @@
 import asyncio
-import random
-import aiohttp
-import time
 import csv
-from openai import AsyncOpenAI
+import random
+import time
 from statistics import mean
+
+import aiohttp
+from openai import AsyncOpenAI
 from tqdm.asyncio import tqdm_asyncio
 
 # OpenAI API 本地部署地址
@@ -22,6 +23,7 @@ samples_per_target = 100
 
 # 保存最终统计结果
 results = []
+
 
 def build_prompt(word_target):
     return f"""【项目基本信息】
@@ -46,6 +48,7 @@ def build_prompt(word_target):
 - 编写"电梯工程质量控制措施"部分
 - 字数要求{word_target}字左右。"""
 
+
 async def fetch_response_length(session, word_target, index):
     try:
         response = await client.chat.completions.create(
@@ -64,12 +67,16 @@ async def fetch_response_length(session, word_target, index):
         print(f"⚠️ Error for target {word_target} at index {index}: {e}")
         return 0  # 如果出错，返回0避免中断统计
 
+
 async def run_test_for_target(session, word_target):
     tasks = [
         fetch_response_length(session, word_target, i)
         for i in range(samples_per_target)
     ]
-    return await tqdm_asyncio.gather(*tasks, desc=f"⏳ Generating {word_target}字", ncols=100)
+    return await tqdm_asyncio.gather(
+        *tasks, desc=f"⏳ Generating {word_target}字", ncols=100
+    )
+
 
 async def main():
     async with aiohttp.ClientSession() as session:
@@ -96,26 +103,37 @@ async def main():
             print(f" - 平均字数：{avg_len}")
             print(f" - 落在 {lower_bound}-{upper_bound} 区间的占比：{in_range_ratio}%")
 
-            results.append({
-                "目标字数": word_target,
-                "最小字数": min_len,
-                "最大字数": max_len,
-                "平均字数": avg_len,
-                "±20%区间命中率(%)": in_range_ratio,
-                "样本字数列表": valid_counts,
-            })
+            results.append(
+                {
+                    "目标字数": word_target,
+                    "最小字数": min_len,
+                    "最大字数": max_len,
+                    "平均字数": avg_len,
+                    "±20%区间命中率(%)": in_range_ratio,
+                    "样本字数列表": valid_counts,
+                }
+            )
 
         # 写入 CSV 文件
-        with open("output_stats_32.csv", "w", newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=[
-                "目标字数", "最小字数", "最大字数", "平均字数", "±20%区间命中率(%)", "样本字数列表"
-            ])
+        with open("output_stats_32.csv", "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "目标字数",
+                    "最小字数",
+                    "最大字数",
+                    "平均字数",
+                    "±20%区间命中率(%)",
+                    "样本字数列表",
+                ],
+            )
             writer.writeheader()
             for row in results:
                 row["样本字数列表"] = str(row["样本字数列表"])
                 writer.writerow(row)
 
         print("\n📁 所有统计结果已保存至 output_stats.csv")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
